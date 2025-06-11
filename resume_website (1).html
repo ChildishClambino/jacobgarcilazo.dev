@@ -71,6 +71,43 @@
             animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
         }
         
+        /* Mobile-specific fixes */
+        @media (max-width: 768px) {
+            .typing-animation {
+                white-space: normal;
+                border-right: none;
+                animation: none;
+                font-size: 1.1rem;
+            }
+            
+            .terminal-window {
+                margin: 0 10px;
+            }
+            
+            .terminal-font {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+            
+            h1 {
+                font-size: 2.5rem !important;
+                line-height: 1.2;
+            }
+            
+            .skill-badge {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+        }
+        
+        .typing-animation {
+            overflow: hidden;
+            border-right: 2px solid var(--accent-light);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
         @keyframes typing {
             from { width: 0 }
             to { width: 100% }
@@ -227,11 +264,11 @@
                 </div>
             </div>
             
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 fade-in">
-                Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Jacob Garcilazo</span>
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 fade-in leading-tight">
+                Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 block sm:inline">Jacob Garcilazo</span>
             </h1>
             
-            <div class="terminal-font text-xl md:text-2xl mb-8 fade-in">
+            <div class="terminal-font text-lg sm:text-xl md:text-2xl mb-8 fade-in">
                 <span class="typing-animation">I craft digital experiences that matter.</span>
             </div>
             
