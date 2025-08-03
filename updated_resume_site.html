@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob Garcilazo - Full‑Stack Software Engineer</title>
+    <!-- Import Tailwind CSS from the CDN so the design matches the original site -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom fonts used on the original site */
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-dark: #134074;
+            --secondary-dark: #13315C;
+            --accent-dark: #0B2545;
+            --accent-light: #8DA9C4;
+            --cream: #EEF4ED;
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--accent-dark) 0%, var(--primary-dark) 100%);
+            color: var(--cream);
+        }
+
+        .terminal-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Terminal styling borrowed from the existing site */
+        .terminal-window {
+            background: linear-gradient(145deg, rgba(19, 64, 116, 0.95), rgba(19, 49, 92, 0.95));
+            border-radius: 12px;
+            border: 1px solid var(--accent-light);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .terminal-header {
+            background: linear-gradient(90deg, var(--secondary-dark), var(--primary-dark));
+            border-radius: 11px 11px 0 0;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--accent-light);
+        }
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27ca3f; }
+
+        /* Badge styling */
+        .skill-badge {
+            background: linear-gradient(135deg, var(--accent-light), var(--primary-dark));
+            color: var(--cream);
+            border-radius: 25px;
+            padding: 8px 16px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .skill-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(141, 169, 196, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="fixed top-0 left-0 w-full py-4 px-8 bg-gradient-to-r from-slate-900 to-slate-800 z-50 shadow-md">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-300">Jacob Garcilazo</a>
+            <div class="space-x-6 hidden md:block">
+                <a href="#home" class="nav-link text-sm">Home</a>
+                <a href="#about" class="nav-link text-sm">About</a>
+                <a href="#experience" class="nav-link text-sm">Experience</a>
+                <a href="#projects" class="nav-link text-sm">Projects</a>
+                <a href="#education" class="nav-link text-sm">Education</a>
+                <a href="#contact" class="nav-link text-sm">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center pt-20 pb-12 px-4">
+        <div class="w-full max-w-4xl">
+            <div class="terminal-window mb-8">
+                <div class="terminal-header">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                    <span class="terminal-font text-sm ml-4">terminal - jacobgarcilazo@dev</span>
+                </div>
+                <div class="p-8 terminal-font text-left">
+                    <p class="text-green-400 mb-2">$ whoami</p>
+                    <p class="mb-4">Full‑Stack Software Engineer &amp; Problem Solver</p>
+                    <p class="text-green-400 mb-2">$ echo $PASSION</p>
+                    <p class="mb-4">Building secure, scalable web applications with Flask, React &amp; Auth0</p>
+                    <p class="text-green-400 mb-2">$ ls skills/</p>
+                    <p>JavaScript&nbsp;HTML5&nbsp;CSS3&nbsp;Python&nbsp;SQL&nbsp;Java</p>
+                </div>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Jacob&nbsp;Garcilazo</span></h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                Full‑stack software engineer with tech residency experience using Flask, SQL and Auth0. I craft digital experiences that matter.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">View My Work</button>
+                <a href="Full%20Stack%20Developer%20Resume.pdf" download class="border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">
+                <span class="terminal-font text-green-400">$ </span>About Me
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <span class="terminal-dot dot-red"></span>
+                            <span class="terminal-dot dot-yellow"></span>
+                            <span class="terminal-dot dot-green"></span>
+                            <span class="terminal-font text-sm ml-4">about.md</span>
+                        </div>
+                        <div class="p-8 space-y-4">
+                            <p class="text-lg leading-relaxed">
+                                I'm a full‑stack software engineer with residency experience in Flask, SQL, and Auth0. I love designing and building secure REST APIs and integrating them seamlessly with modern front‑end frameworks like React.
+                            </p>
+                            <p class="text-lg leading-relaxed">
+                                Beyond coding, you’ll find me exploring new technologies, mentoring fellow developers, or contributing to open‑source projects. My commitment to continuous learning drives me to stay on the cutting edge of software engineering.
+                            </p>
+                            <div class="terminal-font text-green-400 mt-6">
+                                <p>$ current_focus --learning</p>
+                                <p class="text-white ml-4">• REST API development</p>
+                                <p class="text-white ml-4">• Authentication &amp; Security (Auth0/OAuth2)</p>
+                                <p class="text-white ml-4">• Full‑stack projects with React &amp; Flask</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Technical Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3 text-blue-300">Frontend</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge">React</span>
+                                <span class="skill-badge">HTML5</span>
+                                <span class="skill-badge">CSS3</span>
+                                <span class="skill-badge">JavaScript</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3 text-green-300">Backend</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge">Flask</span>
+                                <span class="skill-badge">Node.js</span>
+                                <span class="skill-badge">Python</span>
+                                <span class="skill-badge">Java</span>
+                                <span class="skill-badge">SQL</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3 text-yellow-300">Databases</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge">PostgreSQL</span>
+                                <span class="skill-badge">MySQL</span>
+                                <span class="skill-badge">SQLite</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3 text-purple-300">Tools &amp; Cloud</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge">Git</span>
+                                <span class="skill-badge">Swagger</span>
+                                <span class="skill-badge">Postman</span>
+                                <span class="skill-badge">JWT/Auth0</span>
+                                <span class="skill-badge">AWS Cognito</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-4 bg-gradient-to-r from-slate-900 to-slate-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">
+                <span class="terminal-font text-green-400">$ </span>Experience
+            </h2>
+            <div class="space-y-8">
+                <!-- Backend Developer -->
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <span class="terminal-dot dot-red"></span>
+                        <span class="terminal-dot dot-yellow"></span>
+                        <span class="terminal-dot dot-green"></span>
+                        <span class="terminal-font text-sm ml-4">backend-developer.json</span>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-blue-300">Backend Developer</h3>
+                                <p class="text-xl text-gray-300">Coding Temple</p>
+                            </div>
+                            <span class="terminal-font text-green-400 mt-2 md:mt-0">Apr&nbsp;2025&nbsp;–&nbsp;Present</span>
+                        </div>
+                        <ul class="space-y-2 text-lg">
+                            <li class="flex items-start"><span class="text-green-400 mr-2">▸</span> Collaborated with a team to architect and implement a full‑featured admin dashboard for internal course management using Flask on the backend and React on the frontend.</li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">▸</span> Designed and optimized RESTful API endpoints for user authentication, role‑based access, and CRUD operations across multiple database tables.</li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">▸</span> Utilized Git workflows and Agile sprints to coordinate with developers in delivering scalable features under tight deadlines.</li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">▸</span> Demonstrated strong cross‑functional communication and adaptability in fast‑paced environments.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Software Engineer Apprentice -->
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <span class="terminal-dot dot-red"></span>
+                        <span class="terminal-dot dot-yellow"></span>
+                        <span class="terminal-dot dot-green"></span>
+                        <span class="terminal-font text-sm ml-4">software-apprentice.json</span>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-blue-300">Software Engineer Apprentice</h3>
+                                <p class="text-xl text-gray-300">Coding Temple</p>
+                            </div>
+                            <span class="terminal-font text-green-400 mt-2 md:mt-0">Jan&nbsp;2023&nbsp;–&nbsp;Mar&nbsp;2025</span>
+                        </div>
+                        <ul class="space-y-2 text-lg">
+                            <li class="flex items-start"><span class="text-green-400 mr-2">▸</span> Built full‑stack applications as part of intensive coding bootcamp projects using Flask, React, PostgreSQL, and REST APIs.</li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">▸</span> Participated in daily stand‑ups, pair programming, and code reviews—gaining real‑world experience with Agile development.</li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">▸</span> Worked closely with peers on complex group projects, fostering strong collaboration and teamwork skills.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Lead Sales Representative -->
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <span class="terminal-dot dot-red"></span>
+                        <span class="terminal-dot dot-yellow"></span>
+                        <span class="terminal-dot dot-green"></span>
+                        <span class="terminal-font text-sm ml-4">sales-representative.json</span>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-blue-300">Lead Sales Representative</h3>
+                                <p class="text-xl text-gray-300">Verizon Wireless, Riverside&nbsp;CA</p>
+                            </div>
+                            <span class="terminal-font text-green-400 mt-2 md:mt-0">Apr&nbsp;2020&nbsp;–&nbsp;Dec&nbsp;2022</span>
+                        </div>
+                        <ul class="space-y-2 text-lg">
+                            <li class="flex items-start"><span class="text-green-400 mr-2">▸</span> Ranked in the top 200 sales representatives nationwide through a deep understanding of products and customer needs.</li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">▸</span> Provided technical consultations and device support to a diverse customer base, demystifying complex technology solutions.</li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">▸</span> Earned multiple internal recognitions for outstanding service delivery, conflict resolution, and team collaboration.</li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">▸</span> Excelled in building customer relationships through empathetic communication and active listening.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">
+                <span class="terminal-font text-green-400">$ </span>Featured Projects
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Hawkeye AI Early Weapons Detection System -->
+                <div class="project-card p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold">Hawkeye&nbsp;AI&nbsp;Early Weapons Detection</h3>
+                        <div class="flex space-x-2">
+                            <!-- External link placeholder; update with real demo link if available -->
+                            <a href="#" class="text-blue-400 hover:text-blue-300" title="Visit project site">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                                </svg>
+                            </a>
+                            <!-- GitHub link to the author's profile as a placeholder -->
+                            <a href="https://github.com/ChildishClambino" target="_blank" class="text-blue-400 hover:text-blue-300" title="View on GitHub">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">Integrated Auth0‑based authentication into a production‑ready Flask application using JWTs. Designed and tested API endpoints for user registration, login and data access. Wrote Swagger documentation and set up continuous integration for testing and deployment. Crafted responsive layouts for the homepage, about section, dashboard and sign‑in/sign‑up pages using HTML, CSS and React. Collaborated with front‑end developers using Git feature branches and a code review workflow.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-blue-600 text-white px-2 py-1 rounded">React</span>
+                        <span class="text-xs bg-green-600 text-white px-2 py-1 rounded">Flask</span>
+                        <span class="text-xs bg-purple-600 text-white px-2 py-1 rounded">PostgreSQL</span>
+                        <span class="text-xs bg-yellow-600 text-white px-2 py-1 rounded">Node.js</span>
+                        <span class="text-xs bg-red-600 text-white px-2 py-1 rounded">Auth0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 px-4 bg-gradient-to-r from-slate-900 to-slate-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">
+                <span class="terminal-font text-green-400">$ </span>Education
+            </h2>
+            <div class="space-y-8">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <span class="terminal-dot dot-red"></span>
+                        <span class="terminal-dot dot-yellow"></span>
+                        <span class="terminal-dot dot-green"></span>
+                        <span class="terminal-font text-sm ml-4">coding-temple.json</span>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-blue-300">Coding Temple</h3>
+                                <p class="text-xl text-gray-300">Certificate in Software Engineering</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <span class="terminal-dot dot-red"></span>
+                        <span class="terminal-dot dot-yellow"></span>
+                        <span class="terminal-dot dot-green"></span>
+                        <span class="terminal-font text-sm ml-4">sjvc.json</span>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-blue-300">San Joaquin Valley College</h3>
+                                <p class="text-xl text-gray-300">Associate of Arts in Information Technology</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 bg-gradient-to-r from-slate-900 to-slate-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-16">
+                <span class="terminal-font text-green-400">$ </span>Let's Connect
+            </h2>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                    <span class="terminal-font text-sm ml-4">contact.sh</span>
+                </div>
+                <div class="p-8">
+                    <div class="terminal-font text-left mb-8">
+                        <p class="text-green-400 mb-2">$ echo "Ready to collaborate on your next project!"</p>
+                        <p class="mb-4">Ready to collaborate on your next project!</p>
+                        <p class="text-green-400 mb-2">$ contact --methods</p>
+                        <div class="ml-4 space-y-2">
+                            <p>📞 (909)&#160;275&#160;6720</p>
+                            <p>📧 <a href="mailto:JacobGarcilazo@gmail.com" class="underline hover:text-blue-300">JacobGarcilazo@gmail.com</a></p>
+                            <p>💼 <a href="https://linkedin.com/in/jacob-garcilazo" target="_blank" class="underline hover:text-blue-300">linkedin.com/in/jacob-garcilazo</a></p>
+                            <p>🐱 <a href="https://github.com/ChildishClambino" target="_blank" class="underline hover:text-blue-300">github.com/ChildishClambino</a></p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="text-left">
+                            <h3 class="text-xl font-bold mb-4 text-blue-300">Quick Contact</h3>
+                            <!-- Replace the form action with your own Formspree ID or other email service -->
+                            <form action="https://formspree.io/f/xyzjwkoz" method="POST" class="space-y-4">
+                                <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg focus:border-blue-400 focus:outline-none text-white">
+                                <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg focus:border-blue-400 focus:outline-none text-white">
+                                <textarea name="message" placeholder="Your Message" rows="4" required class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg focus:border-blue-400 focus:outline-none text-white resize-none"></textarea>
+                                <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">Send Message</button>
+                            </form>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="text-xl font-bold mb-4 text-green-300">Let's Work Together</h3>
+                            <p class="text-gray-300 mb-4">I'm always interested in hearing about new opportunities and exciting projects. Whether you're a company looking to hire or you're a fellow developer who'd like to collaborate, I'd love to hear from you!</p>
+                            <div class="flex flex-wrap gap-4 mt-6">
+                                <a href="mailto:JacobGarcilazo@gmail.com" class="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                    </svg>
+                                    <span>Email</span>
+                                </a>
+                                <a href="https://github.com/ChildishClambino" target="_blank" class="flex items-center space-x-2 bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://linkedin.com/in/jacob-garcilazo" target="_blank" class="flex items-center space-x-2 bg-blue-800 hover:bg-blue-900 text-white px-4 py-2 rounded-lg transition-colors">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="tel:+19092756720" class="flex items-center space-x-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition-colors">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                    </svg>
+                                    <span>Call</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center text-sm text-gray-400">
+        &copy; 2025 Jacob Garcilazo. All rights reserved.
+    </footer>
+</body>
+</html>
