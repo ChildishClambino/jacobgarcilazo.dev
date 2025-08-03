@@ -11,13 +11,11 @@
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
         :root {
-            /* Updated palette for a hacker terminal aesthetic */
-            --primary-dark: #010305; /* near‑black background */
-            --secondary-dark: #01140c; /* very dark green */
-            --accent-dark: #002b16;   /* deep green */
-            --accent-light: #013a21;  /* lighter green */
-            --cream: #00ff41;        /* matrix green for text */
-            --danger: #ff003c;        /* red accent for buttons/dots */
+            --primary-dark: #134074;
+            --secondary-dark: #13315C;
+            --accent-dark: #0B2545;
+            --accent-light: #8DA9C4;
+            --cream: #EEF4ED;
         }
 
         * {
@@ -26,9 +24,21 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            /* Dark terminal backdrop */
-            background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--accent-dark) 0%, var(--primary-dark) 100%);
             color: var(--cream);
+        }
+
+        /* Overlay neural network background image */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('neural-bg.png') center/cover no-repeat;
+            opacity: 0.2;
+            z-index: -1;
         }
 
         .terminal-font {
@@ -37,14 +47,13 @@
 
         /* Terminal styling borrowed from the existing site */
         .terminal-window {
-            /* Darker panel for terminal window */
-            background: linear-gradient(145deg, rgba(1, 20, 12, 0.95), rgba(0, 0, 0, 0.95));
+            background: linear-gradient(145deg, rgba(19, 64, 116, 0.95), rgba(19, 49, 92, 0.95));
             border-radius: 12px;
             border: 1px solid var(--accent-light);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
         .terminal-header {
-            background: linear-gradient(90deg, var(--accent-dark), var(--secondary-dark));
+            background: linear-gradient(90deg, var(--secondary-dark), var(--primary-dark));
             border-radius: 11px 11px 0 0;
             padding: 12px 16px;
             border-bottom: 1px solid var(--accent-light);
@@ -58,53 +67,7 @@
         }
         .dot-red { background: #ff5f56; }
         .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #00ff41; }
-
-        /* Floating particle effect */
-        #particle-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: rgba(0, 255, 65, 0.7);
-            border-radius: 50%;
-            animation: float linear infinite;
-        }
-        @keyframes float {
-            from {
-                transform: translateY(0) translateX(0);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(-100vh) translateX(100vw);
-                opacity: 1;
-            }
-        }
-
-        /* Typewriter effect for tagline */
-        .typewriter {
-            overflow: hidden;
-            border-right: 0.15em solid var(--cream);
-            white-space: nowrap;
-            animation: typing 3.5s steps(40, end) forwards, blink 0.75s step-end infinite;
-        }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        @keyframes blink {
-            from, to { border-color: var(--cream); }
-            50% { border-color: transparent; }
-        }
+        .dot-green { background: #27ca3f; }
 
         /* Badge styling */
         .skill-badge {
@@ -125,31 +88,26 @@
 </head>
 <body>
     <!-- Navigation bar -->
-    <nav class="fixed top-0 left-0 w-full py-4 px-8 bg-gradient-to-r from-black via-gray-900 to-black z-50 shadow-md border-b border-green-700">
+    <nav class="fixed top-0 left-0 w-full py-4 px-8 bg-gradient-to-r from-slate-900 to-slate-800 z-50 shadow-md">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-green-400 terminal-font">Jacob Garcilazo</a>
+            <a href="#" class="text-2xl font-bold text-blue-300">Jacob Garcilazo</a>
             <div class="space-x-6 hidden md:block">
-                <a href="#home" class="nav-link text-sm text-green-300 hover:text-red-500 transition-colors duration-300">Home</a>
-                <a href="#about" class="nav-link text-sm text-green-300 hover:text-red-500 transition-colors duration-300">About</a>
-                <a href="#experience" class="nav-link text-sm text-green-300 hover:text-red-500 transition-colors duration-300">Experience</a>
-                <a href="#projects" class="nav-link text-sm text-green-300 hover:text-red-500 transition-colors duration-300">Projects</a>
-                <a href="#education" class="nav-link text-sm text-green-300 hover:text-red-500 transition-colors duration-300">Education</a>
-                <a href="#contact" class="nav-link text-sm text-green-300 hover:text-red-500 transition-colors duration-300">Contact</a>
+                <a href="#home" class="nav-link text-sm">Home</a>
+                <a href="#about" class="nav-link text-sm">About</a>
+                <a href="#experience" class="nav-link text-sm">Experience</a>
+                <a href="#projects" class="nav-link text-sm">Projects</a>
+                <a href="#education" class="nav-link text-sm">Education</a>
+                <a href="#contact" class="nav-link text-sm">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Header / Hero Section -->
-    <section id="home" class="relative min-h-screen flex flex-col justify-center items-center text-center pt-20 pb-12 px-4">
-        <!-- Floating particles overlay -->
-        <div id="particle-container"></div>
-        <div class="w-full max-w-4xl relative z-10">
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center pt-20 pb-12 px-4">
+        <div class="w-full max-w-4xl">
             <div class="terminal-window mb-8">
                 <div class="terminal-header">
-                    <span class="terminal-dot dot-red"></span>
-                    <span class="terminal-dot dot-yellow"></span>
-                    <span class="terminal-dot dot-green"></span>
-                    <span class="terminal-font text-sm ml-4">terminal - jacobgarcilazo@dev</span>
+                            <span class="terminal-font text-sm">terminal - jacobgarcilazo@dev</span>
                 </div>
                 <div class="p-8 terminal-font text-left">
                     <p class="text-green-400 mb-2">$ whoami</p>
@@ -160,13 +118,13 @@
                     <p>JavaScript&nbsp;HTML5&nbsp;CSS3&nbsp;Python&nbsp;SQL&nbsp;Java</p>
                 </div>
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-green-400">Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-green-500 to-lime-400">Jacob&nbsp;Garcilazo</span></h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto terminal-font typewriter">
-                Exploring the frontier between code and consciousness—architecting neural networks, hacking interfaces, and forging immersive digital realms.
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Jacob&nbsp;Garcilazo</span></h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                Full‑stack software engineer with tech residency experience using Flask, SQL and Auth0. I craft digital experiences that matter.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" class="bg-gradient-to-r from-green-500 via-green-600 to-red-600 hover:from-green-600 hover:to-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">View My Work</button>
-                <a href="Full%20Stack%20Developer%20Resume.pdf" download class="border border-green-500 text-green-400 hover:bg-green-600 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">Download Resume</a>
+                <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">View My Work</button>
+                <a href="Full%20Stack%20Developer%20Resume.pdf" download class="border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">Download Resume</a>
             </div>
         </div>
     </section>
@@ -181,10 +139,7 @@
                 <div>
                     <div class="terminal-window">
                         <div class="terminal-header">
-                            <span class="terminal-dot dot-red"></span>
-                            <span class="terminal-dot dot-yellow"></span>
-                            <span class="terminal-dot dot-green"></span>
-                            <span class="terminal-font text-sm ml-4">about.md</span>
+                            <span class="terminal-font text-sm">about.md</span>
                         </div>
                         <div class="p-8 space-y-4">
                             <p class="text-lg leading-relaxed">
@@ -258,9 +213,6 @@
                 <!-- Backend Developer -->
                 <div class="terminal-window">
                     <div class="terminal-header">
-                        <span class="terminal-dot dot-red"></span>
-                        <span class="terminal-dot dot-yellow"></span>
-                        <span class="terminal-dot dot-green"></span>
                         <span class="terminal-font text-sm ml-4">backend-developer.json</span>
                     </div>
                     <div class="p-8">
@@ -282,9 +234,6 @@
                 <!-- Software Engineer Apprentice -->
                 <div class="terminal-window">
                     <div class="terminal-header">
-                        <span class="terminal-dot dot-red"></span>
-                        <span class="terminal-dot dot-yellow"></span>
-                        <span class="terminal-dot dot-green"></span>
                         <span class="terminal-font text-sm ml-4">software-apprentice.json</span>
                     </div>
                     <div class="p-8">
@@ -305,9 +254,6 @@
                 <!-- Lead Sales Representative -->
                 <div class="terminal-window">
                     <div class="terminal-header">
-                        <span class="terminal-dot dot-red"></span>
-                        <span class="terminal-dot dot-yellow"></span>
-                        <span class="terminal-dot dot-green"></span>
                         <span class="terminal-font text-sm ml-4">sales-representative.json</span>
                     </div>
                     <div class="p-8">
@@ -379,9 +325,6 @@
             <div class="space-y-8">
                 <div class="terminal-window">
                     <div class="terminal-header">
-                        <span class="terminal-dot dot-red"></span>
-                        <span class="terminal-dot dot-yellow"></span>
-                        <span class="terminal-dot dot-green"></span>
                         <span class="terminal-font text-sm ml-4">coding-temple.json</span>
                     </div>
                     <div class="p-8">
@@ -395,9 +338,6 @@
                 </div>
                 <div class="terminal-window">
                     <div class="terminal-header">
-                        <span class="terminal-dot dot-red"></span>
-                        <span class="terminal-dot dot-yellow"></span>
-                        <span class="terminal-dot dot-green"></span>
                         <span class="terminal-font text-sm ml-4">sjvc.json</span>
                     </div>
                     <div class="p-8">
@@ -413,30 +353,6 @@
         </div>
     </section>
 
-    <!-- Particle generation script -->
-    <script>
-        // Generate floating particles in the hero section
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.getElementById('particle-container');
-            if (container) {
-                const count = 50;
-                for (let i = 0; i < count; i++) {
-                    const particle = document.createElement('span');
-                    particle.classList.add('particle');
-                    // Randomize initial position
-                    particle.style.left = Math.random() * 100 + 'vw';
-                    particle.style.top = Math.random() * 100 + 'vh';
-                    // Randomize size and animation duration
-                    const size = 2 + Math.random() * 4;
-                    particle.style.width = size + 'px';
-                    particle.style.height = size + 'px';
-                    particle.style.animationDuration = 10 + Math.random() * 20 + 's';
-                    container.appendChild(particle);
-                }
-            }
-        });
-    </script>
-
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-4 bg-gradient-to-r from-slate-900 to-slate-800">
         <div class="max-w-4xl mx-auto text-center">
@@ -445,9 +361,6 @@
             </h2>
             <div class="terminal-window">
                 <div class="terminal-header">
-                    <span class="terminal-dot dot-red"></span>
-                    <span class="terminal-dot dot-yellow"></span>
-                    <span class="terminal-dot dot-green"></span>
                     <span class="terminal-font text-sm ml-4">contact.sh</span>
                 </div>
                 <div class="p-8">
