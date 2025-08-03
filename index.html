@@ -11,11 +11,16 @@
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
         :root {
-            --primary-dark: #134074;
-            --secondary-dark: #13315C;
-            --accent-dark: #0B2545;
-            --accent-light: #8DA9C4;
-            --cream: #EEF4ED;
+            /* Hacker aesthetic palette */
+            --matrix-bg-start: #010a05;
+            --matrix-bg-end: #020d0a;
+            --matrix-green: #00ff99;
+            --matrix-red: #ff416c;
+            --matrix-blue: #2b8a3e;
+            --matrix-light: #93ffba;
+            --matrix-gray: #0f1f17;
+            --text-light: #c8f4d1;
+            --nav-hover: #093318;
         }
 
         * {
@@ -24,39 +29,42 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--accent-dark) 0%, var(--primary-dark) 100%);
-            color: var(--cream);
+            background: linear-gradient(135deg, var(--matrix-bg-start) 0%, var(--matrix-bg-end) 100%);
+            color: var(--text-light);
         }
 
-        /* Overlay neural network background image */
+        /* subtle neural network background overlay */
         body::before {
-            content: '';
+            content: "";
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('neural-bg.png') center/cover no-repeat;
-            opacity: 0.2;
-            z-index: -1;
+            z-index: -2;
+            background-image: url('neural-bg.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            pointer-events: none;
         }
 
         .terminal-font {
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Terminal styling borrowed from the existing site */
+        /* Terminal styling for hacker aesthetic */
         .terminal-window {
-            background: linear-gradient(145deg, rgba(19, 64, 116, 0.95), rgba(19, 49, 92, 0.95));
+            background: linear-gradient(135deg, rgba(0, 30, 10, 0.9), rgba(0, 40, 15, 0.9));
             border-radius: 12px;
-            border: 1px solid var(--accent-light);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--matrix-green);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
         .terminal-header {
-            background: linear-gradient(90deg, var(--secondary-dark), var(--primary-dark));
+            background: linear-gradient(90deg, rgba(0, 40, 15, 0.9), rgba(0, 20, 10, 0.9));
             border-radius: 11px 11px 0 0;
             padding: 12px 16px;
-            border-bottom: 1px solid var(--accent-light);
+            border-bottom: 1px solid var(--matrix-green);
         }
         .terminal-dot {
             width: 12px;
@@ -65,14 +73,14 @@
             display: inline-block;
             margin-right: 8px;
         }
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27ca3f; }
+        .dot-red { background: var(--matrix-red); }
+        .dot-yellow { background: #ffb84d; }
+        .dot-green { background: var(--matrix-green); }
 
         /* Badge styling */
         .skill-badge {
-            background: linear-gradient(135deg, var(--accent-light), var(--primary-dark));
-            color: var(--cream);
+            background: linear-gradient(135deg, rgba(0, 60, 30, 0.8), rgba(0, 80, 40, 0.8));
+            color: var(--matrix-light);
             border-radius: 25px;
             padding: 8px 16px;
             font-size: 0.875rem;
@@ -82,22 +90,38 @@
         }
         .skill-badge:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(141, 169, 196, 0.3);
+            box-shadow: 0 8px 16px rgba(0, 255, 153, 0.2);
+        }
+
+        /* Typewriter animation for tagline */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--matrix-green); }
+        }
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid var(--matrix-green);
+            white-space: nowrap;
+            animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
         }
     </style>
 </head>
 <body>
     <!-- Navigation bar -->
-    <nav class="fixed top-0 left-0 w-full py-4 px-8 bg-gradient-to-r from-slate-900 to-slate-800 z-50 shadow-md">
+    <nav class="fixed top-0 left-0 w-full py-4 px-8 bg-gradient-to-r from-[#00140a] to-[#000000] z-50 shadow-md">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-blue-300">Jacob Garcilazo</a>
+            <a href="#" class="text-2xl font-bold text-green-400 hover:text-red-400 transition-colors duration-300">Jacob Garcilazo</a>
             <div class="space-x-6 hidden md:block">
-                <a href="#home" class="nav-link text-sm">Home</a>
-                <a href="#about" class="nav-link text-sm">About</a>
-                <a href="#experience" class="nav-link text-sm">Experience</a>
-                <a href="#projects" class="nav-link text-sm">Projects</a>
-                <a href="#education" class="nav-link text-sm">Education</a>
-                <a href="#contact" class="nav-link text-sm">Contact</a>
+                <a href="#home" class="nav-link text-sm text-green-300 hover:text-red-400 transition-colors duration-300">Home</a>
+                <a href="#about" class="nav-link text-sm text-green-300 hover:text-red-400 transition-colors duration-300">About</a>
+                <a href="#experience" class="nav-link text-sm text-green-300 hover:text-red-400 transition-colors duration-300">Experience</a>
+                <a href="#projects" class="nav-link text-sm text-green-300 hover:text-red-400 transition-colors duration-300">Projects</a>
+                <a href="#education" class="nav-link text-sm text-green-300 hover:text-red-400 transition-colors duration-300">Education</a>
+                <a href="#contact" class="nav-link text-sm text-green-300 hover:text-red-400 transition-colors duration-300">Contact</a>
             </div>
         </div>
     </nav>
@@ -107,7 +131,10 @@
         <div class="w-full max-w-4xl">
             <div class="terminal-window mb-8">
                 <div class="terminal-header">
-                            <span class="terminal-font text-sm">terminal - jacobgarcilazo@dev</span>
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                    <span class="terminal-font text-sm ml-4">terminal - jacobgarcilazo@dev</span>
                 </div>
                 <div class="p-8 terminal-font text-left">
                     <p class="text-green-400 mb-2">$ whoami</p>
@@ -118,14 +145,16 @@
                     <p>JavaScript&nbsp;HTML5&nbsp;CSS3&nbsp;Python&nbsp;SQL&nbsp;Java</p>
                 </div>
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold mb-6">Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Jacob&nbsp;Garcilazo</span></h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-                Full‑stack software engineer with tech residency experience using Flask, SQL and Auth0. I craft digital experiences that matter.
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-red-400">Jacob&nbsp;Garcilazo</span></h1>
+            <p id="typewriter-text" class="typewriter text-xl md:text-2xl mb-8 max-w-3xl mx-auto" style="max-width: 100%;">
+                Exploring the frontier between code and consciousness—architecting neural networks, hacking interfaces, and forging immersive digital realms.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">View My Work</button>
-                <a href="Full%20Stack%20Developer%20Resume.pdf" download class="border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">Download Resume</a>
+                <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" class="bg-gradient-to-r from-green-600 to-red-600 hover:from-green-700 hover:to-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">View My Work</button>
+                <a href="Full%20Stack%20Developer%20Resume.pdf" download class="border border-green-400 text-green-400 hover:bg-green-400 hover:text-black px-8 py-3 rounded-lg font-semibold transition-all duration-300">Download Resume</a>
             </div>
+            <!-- Particle container -->
+            <div id="particle-container" class="absolute inset-0 pointer-events-none -z-1"></div>
         </div>
     </section>
 
@@ -139,7 +168,10 @@
                 <div>
                     <div class="terminal-window">
                         <div class="terminal-header">
-                            <span class="terminal-font text-sm">about.md</span>
+                            <span class="terminal-dot dot-red"></span>
+                            <span class="terminal-dot dot-yellow"></span>
+                            <span class="terminal-dot dot-green"></span>
+                            <span class="terminal-font text-sm ml-4">about.md</span>
                         </div>
                         <div class="p-8 space-y-4">
                             <p class="text-lg leading-relaxed">
@@ -213,6 +245,9 @@
                 <!-- Backend Developer -->
                 <div class="terminal-window">
                     <div class="terminal-header">
+                        <span class="terminal-dot dot-red"></span>
+                        <span class="terminal-dot dot-yellow"></span>
+                        <span class="terminal-dot dot-green"></span>
                         <span class="terminal-font text-sm ml-4">backend-developer.json</span>
                     </div>
                     <div class="p-8">
@@ -234,6 +269,9 @@
                 <!-- Software Engineer Apprentice -->
                 <div class="terminal-window">
                     <div class="terminal-header">
+                        <span class="terminal-dot dot-red"></span>
+                        <span class="terminal-dot dot-yellow"></span>
+                        <span class="terminal-dot dot-green"></span>
                         <span class="terminal-font text-sm ml-4">software-apprentice.json</span>
                     </div>
                     <div class="p-8">
@@ -254,6 +292,9 @@
                 <!-- Lead Sales Representative -->
                 <div class="terminal-window">
                     <div class="terminal-header">
+                        <span class="terminal-dot dot-red"></span>
+                        <span class="terminal-dot dot-yellow"></span>
+                        <span class="terminal-dot dot-green"></span>
                         <span class="terminal-font text-sm ml-4">sales-representative.json</span>
                     </div>
                     <div class="p-8">
@@ -325,6 +366,9 @@
             <div class="space-y-8">
                 <div class="terminal-window">
                     <div class="terminal-header">
+                        <span class="terminal-dot dot-red"></span>
+                        <span class="terminal-dot dot-yellow"></span>
+                        <span class="terminal-dot dot-green"></span>
                         <span class="terminal-font text-sm ml-4">coding-temple.json</span>
                     </div>
                     <div class="p-8">
@@ -338,6 +382,9 @@
                 </div>
                 <div class="terminal-window">
                     <div class="terminal-header">
+                        <span class="terminal-dot dot-red"></span>
+                        <span class="terminal-dot dot-yellow"></span>
+                        <span class="terminal-dot dot-green"></span>
                         <span class="terminal-font text-sm ml-4">sjvc.json</span>
                     </div>
                     <div class="p-8">
@@ -361,6 +408,9 @@
             </h2>
             <div class="terminal-window">
                 <div class="terminal-header">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
                     <span class="terminal-font text-sm ml-4">contact.sh</span>
                 </div>
                 <div class="p-8">
@@ -428,5 +478,41 @@
     <footer class="py-4 text-center text-sm text-gray-400">
         &copy; 2025 Jacob Garcilazo. All rights reserved.
     </footer>
+
+    <!-- Floating particles script -->
+    <script>
+        // Create floating particles for hacker aesthetic
+        (function() {
+            const particleContainer = document.getElementById('particle-container');
+            if (particleContainer) {
+                function createParticle() {
+                    const particle = document.createElement('div');
+                    const size = Math.random() * 4 + 2; // 2px to 6px
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.borderRadius = '50%';
+                    particle.style.background = 'rgba(0, 255, 153, 0.7)';
+                    particle.style.position = 'absolute';
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.top = `${Math.random() * 100}%`;
+                    const duration = Math.random() * 20 + 10; // 10s to 30s
+                    particle.style.animation = `float ${duration}s linear infinite`;
+                    particleContainer.appendChild(particle);
+                }
+                for (let i = 0; i < 60; i++) {
+                    createParticle();
+                }
+            }
+        })();
+    </script>
+    
+    <!-- Particle float animation keyframes -->
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+        }
+    </style>
 </body>
 </html>
